@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Connexion — Victoria Rixheim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/auth.css" />
+</head>
+<body>
+
+<div class="draft-banner">Brouillon — version de démonstration · non publique</div>
+
+<main class="auth-shell">
+
+  <aside class="auth-side">
+    <div class="hero-badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      Club affilié FFTir · Rixheim, Alsace
+    </div>
+    <h1>Espace<br><span class="acc">privé</span></h1>
+    <p>Site en cours de finalisation, accessible uniquement aux personnes invitées par le club Victoria Rixheim.</p>
+  </aside>
+
+  <div class="auth-card-wrap">
+    <div class="auth-card">
+      <h2>Connexion</h2>
+      <p class="auth-sub">Saisissez les identifiants qui vous ont été communiqués.</p>
+
+      <div class="auth-error" id="loginError" role="alert"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit" class="auth-submit" id="loginSubmit">Se connecter</button>
+      </form>
+
+      <div class="auth-foot">
+        Identifiants oubliés ? <a data-bind-href="contact.emailHref" href="mailto:tir.victoria.rixheim68@gmail.com">Contacter le club</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script type="module" src="./assets/js/site-data.js"></script>
+<script type="module">
+  import { SITE_DATA } from './assets/js/site-data.js';
+  document.querySelectorAll('[data-bind-href]').forEach(el => {
+    const v = el.dataset.bindHref.split('.').reduce((o,k)=>o?.[k], SITE_DATA);
+    if (v) el.setAttribute('href', v);
+  });
+</script>
+<script type="module" src="./assets/js/auth.js"></script>
+</body>
+</html>

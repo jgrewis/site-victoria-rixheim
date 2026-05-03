@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Espace membre — Victoria Rixheim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/auth.css" />
+</head>
+<body class="has-banner">
+
+<div class="draft-banner">Brouillon — version de démonstration · non publique</div>
+
+<nav id="nav">
+  <a href="./accueil.html" class="nav-logo" aria-label="Retour à l'accueil">
+    <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" stroke="#1A2B4A" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="14" stroke="#1A2B4A" stroke-width="1" stroke-dasharray="3 3"/>
+      <circle cx="24" cy="24" r="6"  fill="#C8253B"/>
+      <line x1="24" y1="2"  x2="24" y2="10" stroke="#1A2B4A" stroke-width="1.5"/>
+      <line x1="24" y1="38" x2="24" y2="46" stroke="#1A2B4A" stroke-width="1.5"/>
+      <line x1="2"  y1="24" x2="10" y2="24" stroke="#1A2B4A" stroke-width="1.5"/>
+      <line x1="38" y1="24" x2="46" y2="24" stroke="#1A2B4A" stroke-width="1.5"/>
+    </svg>
+    <div>
+      <span class="logo-name">Victoria</span>
+      <span class="logo-sub">Espace membre</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="./accueil.html">Retour au site</a></li>
+  </ul>
+
+  <button type="button" class="nav-cta" id="logoutBtn">Se déconnecter</button>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<main class="member-shell">
+  <div class="member-card">
+    <div class="member-eye">Espace membre</div>
+    <h1>Bienvenue, <span class="user-email" data-user-email>membre</span></h1>
+    <p>
+      Cette section est réservée aux membres du club. Elle accueillera prochainement
+      les ressources internes : convocations, résultats de compétitions, documents
+      administratifs et communications réservées.
+    </p>
+    <a class="btn-red" href="./accueil.html">← Retour au site</a>
+  </div>
+</main>
+
+<script type="module">
+  import { requireAuth, bindUserUI } from './assets/js/guard.js';
+  import { signOut } from './assets/js/auth.js';
+
+  const session = await requireAuth('member');
+  bindUserUI(session);
+
+  document.getElementById('logoutBtn')?.addEventListener('click', signOut);
+</script>
+<script type="module" src="./assets/js/ui.js"></script>
+</body>
+</html>

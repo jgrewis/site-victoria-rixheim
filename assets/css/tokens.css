@@ -1,0 +1,29 @@
+:root {
+  --canvas:   #F5F4F0;
+  --white:    #FFFFFF;
+  --surface:  #ECEAE4;
+  --navy:     #1A2B4A;
+  --navy-mid: #253960;
+  --navy-lt:  #344D7A;
+  --red:      #C8253B;
+  --red-lt:   #E03050;
+  --ink:      #111827;
+  --muted:    #6B7280;
+  --border:   #D9D6CE;
+  --hero-grad: linear-gradient(135deg, #1A2B4A 0%, #253960 55%, #2C4A7C 100%);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 2px; }
