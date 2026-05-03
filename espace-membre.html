@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Espace membre — Victoria Rixheim</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231A2B4A'/><circle cx='16' cy='16' r='11' fill='none' stroke='rgba(255,255,255,.4)' stroke-width='1'/><circle cx='16' cy='16' r='6' fill='none' stroke='rgba(255,255,255,.25)' stroke-width='1'/><circle cx='16' cy='16' r='4' fill='%23C8253B'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
@@ -17,11 +18,11 @@
 <div class="draft-banner">Brouillon — version de démonstration · non publique</div>
 
 <nav id="nav">
-  <a href="./accueil.html" class="nav-logo" aria-label="Retour à l'accueil">
+  <a href="./accueil.html" class="nav-logo" aria-label="Retour au site Victoria">
     <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
       <circle cx="24" cy="24" r="22" stroke="#1A2B4A" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="14" stroke="#1A2B4A" stroke-width="1" stroke-dasharray="3 3"/>
-      <circle cx="24" cy="24" r="6"  fill="#C8253B"/>
+      <circle cx="24" cy="24" r="6" fill="#C8253B"/>
       <line x1="24" y1="2"  x2="24" y2="10" stroke="#1A2B4A" stroke-width="1.5"/>
       <line x1="24" y1="38" x2="24" y2="46" stroke="#1A2B4A" stroke-width="1.5"/>
       <line x1="2"  y1="24" x2="10" y2="24" stroke="#1A2B4A" stroke-width="1.5"/>
@@ -32,27 +33,204 @@
       <span class="logo-sub">Espace membre</span>
     </div>
   </a>
-
   <ul class="nav-links" id="navLinks">
-    <li><a href="./accueil.html">Retour au site</a></li>
+    <li><a href="./accueil.html">← Retour au site</a></li>
   </ul>
-
-  <button type="button" class="nav-cta" id="logoutBtn">Se déconnecter</button>
   <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<main class="member-shell">
-  <div class="member-card">
-    <div class="member-eye">Espace membre</div>
-    <h1>Bienvenue, <span class="user-email" data-user-email>membre</span></h1>
-    <p>
-      Cette section est réservée aux membres du club. Elle accueillera prochainement
-      les ressources internes : convocations, résultats de compétitions, documents
-      administratifs et communications réservées.
-    </p>
-    <a class="btn-red" href="./accueil.html">← Retour au site</a>
+
+<!-- HERO MEMBRE -->
+<div class="member-hero">
+  <div class="member-hero-left">
+    <div class="member-hero-eyebrow">Espace membre</div>
+    <h1>Bienvenue,<br><span data-user-email>membre</span></h1>
+    <div class="member-hero-meta">
+      <span class="member-role-badge">
+        <span class="member-badge-dot" aria-hidden="true"></span>
+        Membre actif
+      </span>
+      <span class="member-email" data-user-email></span>
+    </div>
   </div>
+  <div class="member-hero-right">
+    <button type="button" class="member-logout" id="logoutBtn">Se déconnecter</button>
+  </div>
+</div>
+
+
+<main class="member-content">
+
+  <!-- SECTION 1 : CONVOCATIONS -->
+  <section>
+    <div class="msec-head reveal">
+      <div class="msec-label">Calendrier</div>
+      <h2 class="msec-title">Convocations à venir</h2>
+    </div>
+    <div class="convoc-list">
+
+      <div class="convoc-card reveal d1">
+        <div class="convoc-date"><span class="convoc-day">24</span><span class="convoc-month">Mai</span></div>
+        <div class="convoc-sep" aria-hidden="true"></div>
+        <div class="convoc-info">
+          <div class="convoc-name">Championnat d'Alsace — Rimfire Benchrest</div>
+          <div class="convoc-place">📍 Mulhouse — Stand du Sundgau</div>
+        </div>
+        <span class="convoc-tag obligatoire">Obligatoire</span>
+      </div>
+
+      <div class="convoc-card reveal d2">
+        <div class="convoc-date"><span class="convoc-day">08</span><span class="convoc-month">Juin</span></div>
+        <div class="convoc-sep" aria-hidden="true"></div>
+        <div class="convoc-info">
+          <div class="convoc-name">Coupe Interdépartementale — Tir couché 50m</div>
+          <div class="convoc-place">📍 Colmar — Stand de Colmar-Horbourg</div>
+        </div>
+        <span class="convoc-tag libre">Libre</span>
+      </div>
+
+      <div class="convoc-card reveal d3">
+        <div class="convoc-date"><span class="convoc-day">22</span><span class="convoc-month">Juin</span></div>
+        <div class="convoc-sep" aria-hidden="true"></div>
+        <div class="convoc-info">
+          <div class="convoc-name">Assemblée Générale du Club</div>
+          <div class="convoc-place">📍 Victoria Rixheim — Salle de réunion</div>
+        </div>
+        <span class="convoc-tag obligatoire">Obligatoire</span>
+      </div>
+
+      <div class="convoc-card reveal d4">
+        <div class="convoc-date"><span class="convoc-day">13</span><span class="convoc-month">Sep</span></div>
+        <div class="convoc-sep" aria-hidden="true"></div>
+        <div class="convoc-info">
+          <div class="convoc-name">Reprise de saison — Séance collective</div>
+          <div class="convoc-place">📍 Victoria Rixheim — Stand principal</div>
+        </div>
+        <span class="convoc-tag info">Rentrée</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 2 : RÉSULTATS -->
+  <section>
+    <div class="msec-head reveal">
+      <div class="msec-label">Palmarès</div>
+      <h2 class="msec-title">Derniers résultats</h2>
+    </div>
+    <div class="result-grid">
+
+      <div class="result-card reveal d1">
+        <div class="result-top">
+          <span class="result-disc">Rimfire Benchrest</span>
+          <span class="result-date">Avr. 2026</span>
+        </div>
+        <div class="result-score-val" data-count="247" data-count-suffix="">247</div>
+        <div class="result-score-max">/ 250 pts</div>
+        <div class="result-tireur">J.-P. Grewis</div>
+        <div class="result-rank">Classement : <strong>2ᵉ</strong> sur 18 participants</div>
+      </div>
+
+      <div class="result-card reveal d2">
+        <div class="result-top">
+          <span class="result-disc">Tir couché 50m</span>
+          <span class="result-date">Mars 2026</span>
+        </div>
+        <div class="result-score-val" data-count="189">189</div>
+        <div class="result-score-max">/ 200 pts</div>
+        <div class="result-tireur">A. Muller</div>
+        <div class="result-rank">Classement : <strong>1ᵉʳ</strong> sur 12 participants</div>
+      </div>
+
+      <div class="result-card reveal d3">
+        <div class="result-top">
+          <span class="result-disc">Tir posé 20m</span>
+          <span class="result-date">Fév. 2026</span>
+        </div>
+        <div class="result-score-val" data-count="93">93</div>
+        <div class="result-score-max">/ 100 pts</div>
+        <div class="result-tireur">M. Schneider</div>
+        <div class="result-rank">Classement : <strong>3ᵉ</strong> sur 9 participants</div>
+      </div>
+
+      <div class="result-card reveal d4">
+        <div class="result-top">
+          <span class="result-disc">École de tir</span>
+          <span class="result-date">Jan. 2026</span>
+        </div>
+        <div class="result-score-val" data-count="8">8</div>
+        <div class="result-score-max">jeunes inscrits</div>
+        <div class="result-tireur">Saison 2025–2026</div>
+        <div class="result-rank">Progression moyenne : <strong>+18 %</strong></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 3 : DOCUMENTS -->
+  <section>
+    <div class="msec-head reveal">
+      <div class="msec-label">Ressources internes</div>
+      <h2 class="msec-title">Documents membres</h2>
+    </div>
+    <div class="doc-member-grid">
+
+      <div class="doc-member-card reveal d1">
+        <div class="doc-member-icon" aria-hidden="true">📄</div>
+        <div class="doc-member-name">PV — AG 2025</div>
+        <div class="doc-member-meta">Procès-verbal de l'Assemblée Générale du 15 juin 2025. Résultats des votes, bilan financier.</div>
+        <a href="#" class="doc-member-btn">↓ Télécharger</a>
+      </div>
+
+      <div class="doc-member-card reveal d2">
+        <div class="doc-member-icon" aria-hidden="true">📋</div>
+        <div class="doc-member-name">Règlement intérieur</div>
+        <div class="doc-member-meta">Version mise à jour — septembre 2025. Règles de sécurité, code de conduite, utilisation des équipements.</div>
+        <a href="#" class="doc-member-btn">↓ Télécharger</a>
+      </div>
+
+      <div class="doc-member-card reveal d3">
+        <div class="doc-member-icon" aria-hidden="true">🗓️</div>
+        <div class="doc-member-name">Planning saison 2025–26</div>
+        <div class="doc-member-meta">Calendrier complet des compétitions, permanences et événements du club pour la saison en cours.</div>
+        <a href="#" class="doc-member-btn">↓ Télécharger</a>
+      </div>
+
+      <div class="doc-member-card reveal d4">
+        <div class="doc-member-icon" aria-hidden="true">💰</div>
+        <div class="doc-member-name">Bilan financier 2024–25</div>
+        <div class="doc-member-meta">Résumé des comptes de l'exercice 2024–2025. Recettes, dépenses, solde et prévisions.</div>
+        <a href="#" class="doc-member-btn">↓ Télécharger</a>
+      </div>
+
+      <div class="doc-member-card reveal">
+        <div class="doc-member-icon" aria-hidden="true">🎯</div>
+        <div class="doc-member-name">Fiche technique — Benchrest</div>
+        <div class="doc-member-meta">Guide de réglages, consignes de tir et grille de notation pour la discipline Rimfire Benchrest.</div>
+        <a href="#" class="doc-member-btn">↓ Télécharger</a>
+      </div>
+
+      <div class="doc-member-card reveal d1">
+        <div class="doc-member-icon" aria-hidden="true">🛡️</div>
+        <div class="doc-member-name">Consignes de sécurité</div>
+        <div class="doc-member-meta">Document de référence obligatoire. Protocoles d'urgence, maniement des armes, responsabilités.</div>
+        <a href="#" class="doc-member-btn">↓ Télécharger</a>
+      </div>
+
+    </div>
+  </section>
+
 </main>
+
+
+<footer>
+  <div class="f-brand">Victoria <span>Rixheim</span></div>
+  <div class="f-badge"><strong>FFTir</strong> Club affilié à la Fédération Française de Tir</div>
+  <div class="f-copy">© 2026 Club de Tir Victoria Rixheim</div>
+</footer>
+
 
 <script type="module">
   import { requireAuth, bindUserUI } from './assets/js/guard.js';

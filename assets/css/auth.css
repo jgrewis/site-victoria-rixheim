@@ -109,3 +109,87 @@ body.has-banner { padding-top:28px; }
 .member-card h1 { font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,2.75rem); font-weight:800; color:var(--navy); line-height:1.1; margin-bottom:1rem; }
 .member-card p { font-size:1rem; color:var(--muted); margin-bottom:1.75rem; max-width:540px; }
 .member-card .user-email { color:var(--navy); font-weight:500; }
+
+/* ── FIX A4 — Banner sur la page login (pas de nav) ─── */
+body.has-banner main.auth-shell { min-height:calc(100svh - 28px); }
+
+/* ── ESPACE MEMBRE : page complète ─── */
+.member-hero {
+  background:var(--hero-grad);
+  padding:calc(68px + 2.5rem) clamp(1.5rem,5vw,4rem) 3rem;
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:space-between; gap:2rem;
+  flex-wrap:wrap;
+}
+.member-hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);
+  pointer-events:none;
+}
+.member-hero::after {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background:linear-gradient(180deg,transparent,var(--red) 40%,var(--red) 60%,transparent);
+}
+.member-hero-left { position:relative; z-index:2; }
+.member-hero-eyebrow { font-size:.72rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--red); margin-bottom:.6rem; }
+.member-hero-left h1 { font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; color:var(--white); line-height:1.1; letter-spacing:-.02em; margin-bottom:.75rem; }
+.member-hero-meta { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
+.member-role-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:100px;
+  padding:.3rem .8rem; font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.75);
+}
+.member-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--red); box-shadow:0 0 6px var(--red); }
+.member-email { font-size:.9rem; color:rgba(255,255,255,.55); }
+.member-hero-right { position:relative; z-index:2; }
+.member-logout { font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.65); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); padding:.55rem 1.1rem; border-radius:6px; cursor:pointer; transition:background .2s, color .2s; }
+.member-logout:hover { background:rgba(255,255,255,.15); color:var(--white); }
+
+/* ── MEMBER CONTENT ─── */
+.member-content { padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,5vw,4rem); display:flex; flex-direction:column; gap:3rem; max-width:1200px; margin:0 auto; }
+.msec-head { margin-bottom:1.5rem; }
+.msec-label { font-size:.72rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--red); margin-bottom:.5rem; display:flex; align-items:center; gap:10px; }
+.msec-label::before { content:''; display:block; width:24px; height:2px; background:var(--red); border-radius:1px; }
+.msec-title { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; line-height:1.1; letter-spacing:-.02em; color:var(--navy); }
+
+/* Convocations */
+.convoc-list { display:flex; flex-direction:column; gap:.85rem; }
+.convoc-card { display:flex; align-items:center; gap:1.25rem; padding:1.1rem 1.5rem; background:var(--white); border:1px solid var(--border); border-radius:12px; transition:box-shadow .2s, border-color .2s; }
+.convoc-card:hover { border-color:var(--navy); box-shadow:0 4px 20px rgba(26,43,74,.08); }
+.convoc-date { display:flex; flex-direction:column; align-items:center; min-width:44px; flex-shrink:0; }
+.convoc-day { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; color:var(--navy); line-height:1; }
+.convoc-month { font-size:.62rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--red); }
+.convoc-sep { width:1px; height:40px; background:var(--border); flex-shrink:0; }
+.convoc-info { flex:1; min-width:0; }
+.convoc-name { font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700; color:var(--navy); margin-bottom:.2rem; }
+.convoc-place { font-size:.82rem; color:var(--muted); }
+.convoc-tag { font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .65rem; border-radius:100px; white-space:nowrap; }
+.convoc-tag.obligatoire { background:rgba(200,37,59,.1); color:var(--red); }
+.convoc-tag.libre { background:rgba(26,43,74,.08); color:var(--navy); }
+.convoc-tag.info { background:rgba(100,100,100,.08); color:var(--muted); }
+@media(max-width:560px) { .convoc-sep, .convoc-tag { display:none; } }
+
+/* Résultats */
+.result-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+.result-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; position:relative; overflow:hidden; }
+.result-card::after { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--red); }
+.result-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; }
+.result-disc { font-family:'Syne',sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+.result-date { font-size:.72rem; color:var(--muted); }
+.result-score-val { font-family:'Syne',sans-serif; font-size:2.75rem; font-weight:800; color:var(--navy); line-height:1; }
+.result-score-max { font-size:.88rem; color:var(--muted); }
+.result-tireur { font-size:.82rem; color:var(--muted); margin-top:.1rem; }
+.result-rank { margin-top:.75rem; font-size:.82rem; color:var(--muted); }
+.result-rank strong { color:var(--red); font-weight:700; }
+
+/* Documents */
+.doc-member-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; }
+.doc-member-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; display:flex; flex-direction:column; gap:.6rem; transition:border-color .2s, box-shadow .2s; }
+.doc-member-card:hover { border-color:var(--navy); box-shadow:0 4px 20px rgba(26,43,74,.07); }
+.doc-member-icon { font-size:1.4rem; line-height:1; }
+.doc-member-name { font-family:'Syne',sans-serif; font-size:.92rem; font-weight:700; color:var(--navy); }
+.doc-member-meta { font-size:.78rem; color:var(--muted); flex:1; }
+.doc-member-btn { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; font-size:.75rem; font-weight:600; color:var(--white); background:var(--navy); padding:.45rem 1rem; border-radius:6px; text-decoration:none; transition:background .2s; margin-top:.25rem; }
+.doc-member-btn:hover { background:var(--navy-lt); }
