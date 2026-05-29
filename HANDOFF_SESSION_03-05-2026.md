@@ -3,6 +3,77 @@
 
 ---
 
+## Prise en main rapide (cold start)
+
+### Accès au repo
+
+- **GitHub** : https://github.com/jgrewis/site-victoria-rixheim
+- **Compte GitHub** : `jgrewis` (accès SSH configuré sur la machine de JP)
+- **Site en ligne** : https://jgrewis.github.io/site-victoria-rixheim/
+
+### Cloner et démarrer en 3 commandes
+
+```bash
+git clone git@github.com:jgrewis/site-victoria-rixheim.git
+cd site-victoria-rixheim
+python3 -m http.server 8000
+# → ouvrir http://localhost:8000/index.html
+```
+
+> ⚠️ Les modules ES (`<script type="module">`) ne fonctionnent **pas** en double-cliquant les fichiers (`file://`). Le serveur HTTP est obligatoire.
+
+### Chemin local sur la machine de JP
+
+```
+/Users/jeanphilippegrewis/Documents/Claude/Projects/Site Victoria/
+```
+
+Si le repo est déjà cloné ici, inutile de re-cloner. Vérifier avec `git status` et `git pull` pour être à jour.
+
+### Workflow d'édition
+
+```bash
+# 1. Éditer les fichiers dans assets/css/, assets/js/ ou les .html
+# 2. Tester en local sur http://localhost:8000/index.html
+# 3. Committer et pousser
+git add <fichiers modifiés>
+git commit -m "Description du changement"
+git push
+# → GitHub Pages se redéploie automatiquement en ~1 min
+```
+
+Suivre le déploiement : https://github.com/jgrewis/site-victoria-rixheim/actions
+
+### Accès Supabase
+
+- **Dashboard** : https://supabase.com/dashboard/project/giccgdabfwxkgdzzvgva
+- **Project ID** : `giccgdabfwxkgdzzvgva`
+- **URL** : `https://giccgdabfwxkgdzzvgva.supabase.co`
+- **Anon key** (publique, déjà dans le code) : `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdpY2NnZGFiZnd4a2dkenp2Z3ZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3Njg4ODUsImV4cCI6MjA5MzM0NDg4NX0.BlAwLtPESVTF7CRv6Nrqs1VpGgApPqYlOTM7SH3vCrY`
+- Gestion des utilisateurs : **Authentication > Users** dans le dashboard
+- Modifier un rôle utilisateur via SQL Editor si l'UI ne permet pas l'édition :
+  ```sql
+  update auth.users
+  set raw_user_meta_data = raw_user_meta_data || '{"role": "member"}'::jsonb
+  where email = 'adresse@email.com';
+  ```
+
+### Fichiers clés à connaître
+
+| Fichier | Rôle | À modifier pour... |
+|---|---|---|
+| `assets/js/site-data.js` | Source unique de vérité | Changer horaires, téléphone, email, tarifs |
+| `assets/css/tokens.css` | Variables CSS (couleurs, typo) | Changer la palette ou la police |
+| `assets/css/main.css` | Styles du site vitrine | Modifier le layout, les cartes, la nav |
+| `assets/css/auth.css` | Styles login + espace membre | Modifier les pages auth |
+| `assets/js/ui.js` | Animations et interactions | Modifier/ajouter des animations |
+| `assets/js/guard.js` | Protection des pages | Modifier la logique d'accès par rôle |
+| `accueil.html` | Site vitrine | Modifier le contenu public |
+| `espace-membre.html` | Espace membre | Modifier le contenu réservé aux membres |
+| `index.html` | Page de login | Modifier le formulaire de connexion |
+
+---
+
 ## Ce qui a été fait
 
 ### Étape 1 — Audit & Refactor du fichier monolithique
