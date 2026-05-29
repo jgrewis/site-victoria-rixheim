@@ -110,7 +110,11 @@ h1.hero-title .acc { color:var(--red); }
 .stat-item:last-child { border-right:none; }
 .stat-val { font-family:'Syne',sans-serif; font-size:1.5rem; font-weight:800; color:var(--white); line-height:1; }
 .stat-lab { font-size:.72rem; color:rgba(255,255,255,.4); margin-top:2px; }
-@media(max-width:640px){ .hero-stats{grid-template-columns:1fr 1fr} }
+@media(max-width:640px){
+  .hero-stats{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .stat-item{ padding:1.1rem 1.1rem; }
+  .stat-val{ font-size:1.25rem; }
+}
 
 /* ── SECTION HEADER ─── */
 .sec-head { margin-bottom:clamp(2.5rem,5vw,3.5rem); }
@@ -287,3 +291,23 @@ footer { background:#111827; padding:2rem clamp(1.5rem,5vw,4rem); display:flex; 
   transition:background-color .25s;
 }
 .disc-card:not(.feat):hover { background-color:#F8F7F4; }
+
+/* ── ICÔNES SVG (tailles & couleurs selon le contexte) ─── */
+.info-icon-box .icon { width:20px; height:20px; color:var(--white); }
+.ci-icon .icon       { width:18px; height:18px; color:var(--white); }
+.disc-icon           { width:1.75rem; height:1.75rem; color:var(--red); margin-bottom:.85rem; display:block; }
+.disc-card.feat .disc-icon { color:var(--white); }
+
+/* ── SECTION « LE CLUB » ─── */
+#club { padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,5vw,4rem); background:var(--canvas); }
+.club-inner { max-width:780px; }
+.club-lead { font-size:clamp(1rem,1.6vw,1.15rem); color:var(--muted); line-height:1.8; margin-top:1.25rem; }
+.club-lead strong { color:var(--ink); font-weight:500; }
+.club-facts { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:2.25rem; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.club-fact { background:var(--white); padding:1.25rem 1rem; display:flex; flex-direction:column; gap:.25rem; }
+.club-fact-k { font-family:'Syne',sans-serif; font-size:1.25rem; font-weight:800; color:var(--navy); line-height:1; }
+.club-fact-v { font-size:.74rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+@media(max-width:640px){ .club-facts{grid-template-columns:1fr 1fr} }
+
+/* ── CARTE (embed Google Maps) ─── */
+.map-embed { width:100%; flex:1; min-height:300px; border:0; display:block; }

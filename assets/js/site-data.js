@@ -16,8 +16,9 @@ export const SITE_DATA = {
     ecole: 'Dim. 10h – 11h30',
   },
   localisation: {
+    adresse: '39 rue Basse, 68170 Rixheim',
     ville: 'Rixheim — Alsace, 68170',
-    mapsHref: 'https://maps.google.com/?q=Rixheim+68170',
+    mapsHref: 'https://maps.google.com/?q=Soci%C3%A9t%C3%A9+de+Tir+Victoria+Rixheim+39+rue+Basse+68170+Rixheim',
   },
   affiliation: {
     label: 'Fédération Française de Tir',

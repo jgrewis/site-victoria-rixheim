@@ -1,7 +1,11 @@
 import { SITE_DATA } from './site-data.js';
 
+// Préférence système « réduire les animations »
+const prefersReducedMotion = () =>
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
 // ── Injecte les données depuis SITE_DATA dans [data-bind] et [data-bind-href]
-function bindSiteData() {
+export function bindSiteData() {
   const get = (path) => path.split('.').reduce((o, k) => (o ? o[k] : undefined), SITE_DATA);
   document.querySelectorAll('[data-bind]').forEach(el => {
     const v = get(el.dataset.bind);
@@ -57,6 +61,9 @@ function initCounters() {
   const els = document.querySelectorAll('[data-count]');
   if (!els.length) return;
 
+  // Animations réduites : on laisse la valeur finale (déjà présente dans le HTML).
+  if (prefersReducedMotion()) return;
+
   const animate = (el) => {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.countSuffix ?? '';
@@ -99,6 +106,7 @@ function initScopeEffect() {
 function initBulletAnimation() {
   const visual = document.querySelector('.hero-visual');
   if (!visual) return;
+  if (prefersReducedMotion()) return; // pas d'animation si l'utilisateur le demande
 
   const marks = [];
   const MAX_MARKS = 4;
@@ -150,10 +158,17 @@ function initBulletAnimation() {
     };
   };
 
-  // Lancer 2s après le chargement, puis toutes les 3.5s
+  // Lancer 2s après le chargement, puis toutes les 3.5s.
+  // On met l'animation en pause quand l'onglet n'est pas visible (économie CPU/batterie).
+  let timer = null;
+  const start = () => { if (!timer) timer = setInterval(fireBullet, 3500); };
+  const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
   setTimeout(() => {
-    fireBullet();
-    setInterval(fireBullet, 3500);
+    if (document.visibilityState === 'visible') { fireBullet(); start(); }
+    document.addEventListener('visibilitychange', () => {
+      document.visibilityState === 'visible' ? start() : stop();
+    });
   }, 2000);
 }
 

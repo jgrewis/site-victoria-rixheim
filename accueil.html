@@ -17,8 +17,57 @@
   <link rel="stylesheet" href="./assets/css/tokens.css" />
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="stylesheet" href="./assets/css/auth.css" />
+
+  <!-- SEO local : données structurées (prêtes pour la prod, une fois le noindex retiré) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Club de Tir Victoria Rixheim",
+    "alternateName": "Société de Tir Victoria Rixheim",
+    "sport": "Tir sportif",
+    "url": "https://jgrewis.github.io/site-victoria-rixheim/",
+    "telephone": "+33675723031",
+    "email": "tir.victoria.rixheim68@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "39 rue Basse",
+      "postalCode": "68170",
+      "addressLocality": "Rixheim",
+      "addressRegion": "Grand Est",
+      "addressCountry": "FR"
+    },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Fédération Française de Tir",
+      "alternateName": "FFTir"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "14:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:30", "closes": "12:00" }
+    ]
+  }
+  </script>
 </head>
 <body class="has-banner">
+
+<!-- ===== SPRITE D'ICÔNES SVG (remplace les emojis ; aria-hidden via .icon) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-license" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M5.5 16c.4-1.4 1.4-2.2 2.5-2.2s2.1.8 2.5 2.2"/><line x1="14" y1="10.5" x2="18" y2="10.5"/><line x1="14" y1="14" x2="18" y2="14"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M16 7a6 6 0 1 0 0 10"/><line x1="5" y1="10.5" x2="13" y2="10.5"/><line x1="5" y1="13.5" x2="13" y2="13.5"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="3.5" rx="1"/><line x1="8.5" y1="11" x2="8.5" y2="11"/><line x1="11.5" y1="11" x2="16" y2="11"/><line x1="11.5" y1="15" x2="16" y2="15"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 8 22l4-2 4 2-1-7.5"/></symbol>
+  <symbol id="i-youth" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.6 3.1-6 7-6s7 2.4 7 6"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><line x1="12" y1="1.5" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22.5" y2="12"/></symbol>
+  <symbol id="i-scope" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-prone" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><line x1="3" y1="12" x2="21" y2="12"/></symbol>
+  <symbol id="i-bullseye" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></symbol>
+</svg>
 
 <!-- BROUILLON BANNER -->
 <div class="draft-banner">Brouillon — version de démonstration · non publique</div>
@@ -53,6 +102,8 @@
   <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
+
+<main id="contenu">
 
 <!-- HERO -->
 <section id="accueil">
@@ -103,6 +154,27 @@
 </section>
 
 
+<!-- LE CLUB -->
+<section id="club">
+  <div class="club-inner reveal">
+    <div class="sec-label">Le club</div>
+    <h2 class="sec-title">Société de Tir Victoria, à Rixheim</h2>
+    <p class="club-lead">
+      Club de tir sportif affilié à la Fédération Française de Tir, la Société de Tir Victoria
+      accueille débutants comme tireurs confirmés dans un cadre convivial et sécurisé, avec un
+      encadrement personnalisé. Six disciplines et une école de tir pour les jeunes, au stand
+      du <strong>39 rue Basse</strong> à Rixheim.
+    </p>
+    <div class="club-facts">
+      <div class="club-fact"><span class="club-fact-k">FFTir</span><span class="club-fact-v">Club affilié</span></div>
+      <div class="club-fact"><span class="club-fact-k">6</span><span class="club-fact-v">Disciplines</span></div>
+      <div class="club-fact"><span class="club-fact-k">Jeu + Dim</span><span class="club-fact-v">Séances ouvertes</span></div>
+      <div class="club-fact"><span class="club-fact-k">Tous niveaux</span><span class="club-fact-v">Débutants bienvenus</span></div>
+    </div>
+  </div>
+</section>
+
+
 <!-- INFOS UTILES -->
 <section id="infos">
   <div class="sec-head reveal">
@@ -113,7 +185,7 @@
 
     <div class="info-card reveal d1">
       <div class="info-card-top">
-        <div class="info-icon-box" aria-hidden="true">🕐</div>
+        <div class="info-icon-box" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></div>
         <div class="info-card-title">Horaires d'ouverture</div>
       </div>
       <div class="horaire-row">
@@ -136,7 +208,7 @@
 
     <div class="info-card reveal d2">
       <div class="info-card-top">
-        <div class="info-icon-box" aria-hidden="true">🪪</div>
+        <div class="info-icon-box" aria-hidden="true"><svg class="icon"><use href="#i-license"/></svg></div>
         <div class="info-card-title">Licence FFTir</div>
       </div>
       <p class="licence-desc">Obligatoire pour pratiquer. Valable du <strong>1er septembre au 31 août</strong>, renouvellement annuel.</p>
@@ -150,7 +222,7 @@
 
     <div class="info-card reveal d3">
       <div class="info-card-top">
-        <div class="info-icon-box" aria-hidden="true">💰</div>
+        <div class="info-icon-box" aria-hidden="true"><svg class="icon"><use href="#i-euro"/></svg></div>
         <div class="info-card-title">Tarifs</div>
       </div>
       <div class="tarif-list">
@@ -162,7 +234,7 @@
 
     <div class="info-card reveal d4">
       <div class="info-card-top">
-        <div class="info-icon-box" aria-hidden="true">📋</div>
+        <div class="info-icon-box" aria-hidden="true"><svg class="icon"><use href="#i-clipboard"/></svg></div>
         <div class="info-card-title">Documents nécessaires</div>
       </div>
       <div class="doc-chips">
@@ -190,42 +262,42 @@
 
     <div class="disc-card feat">
       <div class="disc-num">01 — DISCIPLINE PHARE</div>
-      <span class="disc-icon" aria-hidden="true">🧒</span>
+      <svg class="icon disc-icon" aria-hidden="true"><use href="#i-youth"/></svg>
       <div class="disc-dist">Initiation · École de tir</div>
       <div class="disc-name">Initiation Jeunes</div>
       <p class="disc-desc">Découverte du tir sportif dans un cadre sécurisé et encadré. Les jeunes apprennent les bases — sécurité, position, visée — à l'aide de carabines adaptées sur table avec support. Tous les dimanches matin de 10h à 11h30.</p>
     </div>
 
     <div class="disc-card">
-      <div class="disc-num">02</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-num">02</div><svg class="icon disc-icon" aria-hidden="true"><use href="#i-target"/></svg>
       <div class="disc-dist">20 mètres</div>
       <div class="disc-name">Tir à genoux</div>
       <p class="disc-desc">Discipline de précision en position à genoux. Demande stabilité, concentration et maîtrise de la position.</p>
     </div>
 
     <div class="disc-card">
-      <div class="disc-num">03</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-num">03</div><svg class="icon disc-icon" aria-hidden="true"><use href="#i-crosshair"/></svg>
       <div class="disc-dist">20 mètres</div>
       <div class="disc-name">Tir posé</div>
       <p class="disc-desc">Discipline accessible idéale pour débuter. Carabine posée sur support — focus sur la visée et la précision.</p>
     </div>
 
     <div class="disc-card">
-      <div class="disc-num">04</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-num">04</div><svg class="icon disc-icon" aria-hidden="true"><use href="#i-scope"/></svg>
       <div class="disc-dist">50 mètres</div>
       <div class="disc-name">Tir posé longue distance</div>
       <p class="disc-desc">Précision à plus longue distance avec appui. Travaille la régularité et le groupement.</p>
     </div>
 
     <div class="disc-card">
-      <div class="disc-num">05</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-num">05</div><svg class="icon disc-icon" aria-hidden="true"><use href="#i-prone"/></svg>
       <div class="disc-dist">50 mètres</div>
       <div class="disc-name">Tir couché</div>
       <p class="disc-desc">Position classique du tir sportif, très utilisée en compétition. Demande rigueur et répétabilité.</p>
     </div>
 
     <div class="disc-card">
-      <div class="disc-num">06</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-num">06</div><svg class="icon disc-icon" aria-hidden="true"><use href="#i-bullseye"/></svg>
       <div class="disc-dist">50 mètres · .22LR</div>
       <div class="disc-name">Rimfire Benchrest</div>
       <p class="disc-desc">Tir de précision à la carabine .22LR sur table. Groupements les plus serrés — réglages, régularité, lecture du vent.</p>
@@ -245,7 +317,7 @@
 
     <div class="contact-items">
       <div class="contact-item reveal">
-        <div class="ci-icon" aria-hidden="true">📞</div>
+        <div class="ci-icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></div>
         <div>
           <div class="ci-label">Téléphone</div>
           <div class="ci-value"><a data-bind-href="contact.phoneHref" data-bind="contact.phone" href="#"></a></div>
@@ -253,21 +325,21 @@
         </div>
       </div>
       <div class="contact-item reveal d1">
-        <div class="ci-icon" aria-hidden="true">📧</div>
+        <div class="ci-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></div>
         <div>
           <div class="ci-label">Email</div>
           <div class="ci-value"><a data-bind-href="contact.emailHref" data-bind="contact.email" href="#"></a></div>
         </div>
       </div>
       <div class="contact-item reveal d2">
-        <div class="ci-icon" aria-hidden="true">📅</div>
+        <div class="ci-icon" aria-hidden="true"><svg class="icon"><use href="#i-calendar"/></svg></div>
         <div>
           <div class="ci-label">Permanences sur place</div>
           <div class="ci-value sm" data-bind="horaires.short"></div>
         </div>
       </div>
       <div class="contact-item reveal d3">
-        <div class="ci-icon" aria-hidden="true">🏅</div>
+        <div class="ci-icon" aria-hidden="true"><svg class="icon"><use href="#i-award"/></svg></div>
         <div>
           <div class="ci-label">Affiliation</div>
           <div class="ci-value" data-bind="affiliation.label"></div>
@@ -277,19 +349,14 @@
     </div>
 
     <div class="map-block reveal d2">
-      <div class="map-ph">
-        <div class="map-grid-bg"></div>
-        <div class="map-center">
-          <svg class="map-pin-svg" viewBox="0 0 48 60" fill="none" aria-hidden="true">
-            <path d="M24 0C10.745 0 0 10.745 0 24c0 17.25 24 36 24 36s24-18.75 24-36C48 10.745 37.255 0 24 0z" fill="#C8253B"/>
-            <circle cx="24" cy="24" r="10" fill="white"/>
-            <circle cx="24" cy="24" r="5" fill="#C8253B"/>
-          </svg>
-          <div class="map-lbl">Club de Tir Victoria · Rixheim</div>
-        </div>
-      </div>
+      <iframe
+        class="map-embed"
+        title="Localisation du Club de Tir Victoria — 39 rue Basse, 68170 Rixheim"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=39%20rue%20Basse%2C%2068170%20Rixheim&output=embed"></iframe>
       <div class="map-foot">
-        <div class="map-foot-txt" data-bind="localisation.ville"></div>
+        <div class="map-foot-txt" data-bind="localisation.adresse"></div>
         <a data-bind-href="localisation.mapsHref" target="_blank" rel="noopener" class="map-lnk" href="#">Voir sur Maps →</a>
       </div>
     </div>
@@ -307,6 +374,8 @@
     <a class="btn-out-w" data-bind-href="contact.emailHref" href="#">Envoyer un email</a>
   </div>
 </section>
+
+</main>
 
 
 <!-- FOOTER -->

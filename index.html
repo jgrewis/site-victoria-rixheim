@@ -59,13 +59,10 @@
 
 </main>
 
-<script type="module" src="./assets/js/site-data.js"></script>
 <script type="module">
-  import { SITE_DATA } from './assets/js/site-data.js';
-  document.querySelectorAll('[data-bind-href]').forEach(el => {
-    const v = el.dataset.bindHref.split('.').reduce((o,k)=>o?.[k], SITE_DATA);
-    if (v) el.setAttribute('href', v);
-  });
+  // Binding mutualisé avec le reste du site (plus de logique dupliquée ici).
+  import { bindSiteData } from './assets/js/ui.js';
+  bindSiteData();
 </script>
 <script type="module" src="./assets/js/auth.js"></script>
 ===== fin du bloc commenté ===== -->
