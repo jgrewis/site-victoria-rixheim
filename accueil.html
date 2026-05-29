@@ -349,15 +349,18 @@
     </div>
 
     <div class="map-block reveal d2">
-      <iframe
-        class="map-embed"
-        title="Localisation du Club de Tir Victoria — 39 rue Basse, 68170 Rixheim"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=39%20rue%20Basse%2C%2068170%20Rixheim&output=embed"></iframe>
+      <a class="map-img-link" data-bind-href="localisation.mapsHref"
+         href="https://maps.google.com/?q=Soci%C3%A9t%C3%A9+de+Tir+Victoria+Rixheim+39+rue+Basse+68170+Rixheim"
+         target="_blank" rel="noopener"
+         aria-label="Ouvrir l'emplacement de la Société de Tir Victoria Rixheim dans Google Maps">
+        <img class="map-img" src="./assets/img/carte-rixheim.png"
+             alt="Carte de localisation — Société de Tir Victoria Rixheim, 39 rue Basse, 68170 Rixheim"
+             loading="lazy" />
+        <span class="map-img-pill" aria-hidden="true">Voir sur Google Maps →</span>
+      </a>
       <div class="map-foot">
         <div class="map-foot-txt" data-bind="localisation.adresse"></div>
-        <a data-bind-href="localisation.mapsHref" target="_blank" rel="noopener" class="map-lnk" href="#">Voir sur Maps →</a>
+        <a data-bind-href="localisation.mapsHref" target="_blank" rel="noopener" class="map-lnk" href="#">Itinéraire →</a>
       </div>
     </div>
   </div>
