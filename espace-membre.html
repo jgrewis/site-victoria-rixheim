@@ -233,10 +233,15 @@
 
 
 <script type="module">
-  import { requireAuth, bindUserUI } from './assets/js/guard.js';
+  import { bindUserUI } from './assets/js/guard.js';
   import { signOut } from './assets/js/auth.js';
 
-  const session = await requireAuth('member');
+  // ===== AUTH DÉSACTIVÉE TEMPORAIREMENT — garde "member" commentée (test présidente) =====
+  // Pour réactiver : remettre  const session = await requireAuth('member');
+  // et ré-importer requireAuth ci-dessus.
+  // import { requireAuth } from './assets/js/guard.js';
+  // const session = await requireAuth('member');
+  const session = null;
   bindUserUI(session);
 
   document.getElementById('logoutBtn')?.addEventListener('click', signOut);

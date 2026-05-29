@@ -11,9 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/tokens.css" />
   <link rel="stylesheet" href="./assets/css/auth.css" />
+
+  <!-- ===== AUTH DÉSACTIVÉE TEMPORAIREMENT — redirection directe vers le site (test présidente) ===== -->
+  <!-- Pour réactiver le login : supprimer cette balise meta + dé-commenter le bloc <body> ci-dessous. -->
+  <meta http-equiv="refresh" content="0; url=./accueil.html" />
 </head>
 <body>
 
+<!-- ===== AUTH DÉSACTIVÉE TEMPORAIREMENT — page de connexion mise en commentaire =====
 <div class="draft-banner">Brouillon — version de démonstration · non publique</div>
 
 <main class="auth-shell">
@@ -63,5 +68,11 @@
   });
 </script>
 <script type="module" src="./assets/js/auth.js"></script>
+===== fin du bloc commenté ===== -->
+
+<!-- Fallback si la redirection meta ne se déclenche pas -->
+<p style="font-family:sans-serif;padding:2rem;text-align:center">
+  Redirection… <a href="./accueil.html">Entrer sur le site</a>
+</p>
 </body>
 </html>
