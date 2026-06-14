@@ -3,65 +3,355 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Club de Tir Victoria Rixheim — tir sportif pour tous les niveaux, affilié FFTir. 6 disciplines, école de tir jeunes, ambiance conviviale en Alsace." />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Connexion — Victoria Rixheim</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Victoria Rixheim — Club de Tir Sportif" />
+  <meta property="og:description" content="Club de Tir Sportif Victoria Rixheim — 6 disciplines, école de tir jeunes, affilié FFTir. Rixheim, Alsace." />
+  <meta property="og:url" content="https://jgrewis.github.io/site-victoria-rixheim/" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231A2B4A'/><circle cx='16' cy='16' r='11' fill='none' stroke='rgba(255,255,255,.4)' stroke-width='1'/><circle cx='16' cy='16' r='6' fill='none' stroke='rgba(255,255,255,.25)' stroke-width='1'/><circle cx='16' cy='16' r='4' fill='%23C8253B'/></svg>" />
+  <title>Victoria Rixheim — Club de Tir Sportif</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="stylesheet" href="./assets/css/auth.css" />
 </head>
 <body>
 
-<div class="draft-banner">Brouillon — version de démonstration · non publique</div>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#accueil" class="nav-logo" aria-label="Accueil — Club de Tir Victoria Rixheim">
+    <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" stroke="#1A2B4A" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="14" stroke="#1A2B4A" stroke-width="1" stroke-dasharray="3 3"/>
+      <circle cx="24" cy="24" r="6"  fill="#C8253B"/>
+      <line x1="24" y1="2"  x2="24" y2="10" stroke="#1A2B4A" stroke-width="1.5"/>
+      <line x1="24" y1="38" x2="24" y2="46" stroke="#1A2B4A" stroke-width="1.5"/>
+      <line x1="2"  y1="24" x2="10" y2="24" stroke="#1A2B4A" stroke-width="1.5"/>
+      <line x1="38" y1="24" x2="46" y2="24" stroke="#1A2B4A" stroke-width="1.5"/>
+    </svg>
+    <div>
+      <span class="logo-name">Victoria</span>
+      <span class="logo-sub">Club de Tir · Rixheim</span>
+    </div>
+  </a>
 
-<main class="auth-shell">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#infos">Infos utiles</a></li>
+    <li><a href="#disciplines">Disciplines</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="./espace-membre.html">Espace membre</a></li>
+  </ul>
 
-  <aside class="auth-side">
+  <a class="nav-cta" data-bind-href="contact.emailHref" href="#">Nous écrire</a>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-left">
     <div class="hero-badge">
       <span class="badge-dot" aria-hidden="true"></span>
       Club affilié FFTir · Rixheim, Alsace
     </div>
-    <h1>Espace<br><span class="acc">privé</span></h1>
-    <p>Site en cours de finalisation, accessible uniquement aux personnes invitées par le club Victoria Rixheim.</p>
-  </aside>
-
-  <div class="auth-card-wrap">
-    <div class="auth-card">
-      <h2>Connexion</h2>
-      <p class="auth-sub">Saisissez les identifiants qui vous ont été communiqués.</p>
-
-      <div class="auth-error" id="loginError" role="alert"></div>
-
-      <form id="loginForm" novalidate>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" required />
-        </div>
-        <div class="field">
-          <label for="password">Mot de passe</label>
-          <input type="password" id="password" name="password" autocomplete="current-password" required />
-        </div>
-        <button type="submit" class="auth-submit" id="loginSubmit">Se connecter</button>
-      </form>
-
-      <div class="auth-foot">
-        Identifiants oubliés ? <a data-bind-href="contact.emailHref" href="mailto:tir.victoria.rixheim68@gmail.com">Contacter le club</a>
-      </div>
+    <h1 class="hero-title">Tir sportif<br><span class="acc">pour tous</span><br>les niveaux</h1>
+    <p class="hero-desc">Bienvenue au Club de Tir Victoria Rixheim. Ambiance conviviale, encadrement sérieux, 6 disciplines — du débutant au tireur confirmé.</p>
+    <div class="hero-actions">
+      <a href="#disciplines" class="btn-white">Voir les disciplines</a>
+      <a href="#infos" class="btn-outline-w">Infos &amp; Licences</a>
     </div>
   </div>
 
-</main>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="target-rings">
+        <svg viewBox="0 0 360 360" fill="none" aria-hidden="true">
+          <circle cx="180" cy="180" r="170" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+          <circle cx="180" cy="180" r="130" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+          <circle cx="180" cy="180" r="90"  stroke="rgba(255,255,255,.09)" stroke-width="1.5"/>
+          <circle cx="180" cy="180" r="55"  stroke="rgba(255,255,255,.11)" stroke-width="1.5"/>
+          <circle cx="180" cy="180" r="24"  stroke="rgba(200,37,59,.5)"   stroke-width="2"/>
+          <circle cx="180" cy="180" r="10"  fill="rgba(200,37,59,.7)"/>
+          <line x1="0"  y1="180" x2="60"  y2="180" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <line x1="300" y1="180" x2="360" y2="180" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <line x1="180" y1="0"  x2="180" y2="60"  stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <line x1="180" y1="300" x2="180" y2="360" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+          <text x="192" y="140" fill="rgba(255,255,255,.18)" font-size="10" font-family="monospace">10</text>
+          <text x="192" y="107" fill="rgba(255,255,255,.13)" font-size="10" font-family="monospace">9</text>
+          <text x="192" y="75"  fill="rgba(255,255,255,.09)" font-size="10" font-family="monospace">8</text>
+        </svg>
+      </div>
+      <div class="hero-pill pill-1"><div class="pill-val" data-count="6">6</div><div class="pill-lab">Disciplines</div></div>
+      <div class="hero-pill pill-2"><div class="pill-val" data-count="17" data-count-suffix=" €">17 €</div><div class="pill-lab">Découverte</div></div>
+      <div class="hero-pill pill-3"><div class="pill-val" data-count="50" data-count-suffix="m">50m</div><div class="pill-lab">Distance max</div></div>
+    </div>
+  </div>
 
-<script type="module" src="./assets/js/site-data.js"></script>
-<script type="module">
-  import { SITE_DATA } from './assets/js/site-data.js';
-  document.querySelectorAll('[data-bind-href]').forEach(el => {
-    const v = el.dataset.bindHref.split('.').reduce((o,k)=>o?.[k], SITE_DATA);
-    if (v) el.setAttribute('href', v);
-  });
-</script>
-<script type="module" src="./assets/js/auth.js"></script>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-val">2×/sem.</div><div class="stat-lab">Séances ouvertes</div></div>
+    <div class="stat-item"><div class="stat-val">FFTir</div><div class="stat-lab">Fédération officielle</div></div>
+    <div class="stat-item"><div class="stat-val">Jeu + Dim</div><div class="stat-lab">Jours d'ouverture</div></div>
+    <div class="stat-item"><div class="stat-val">Tous niveaux</div><div class="stat-lab">Débutants bienvenus</div></div>
+  </div>
+</section>
+
+
+<!-- INFOS UTILES -->
+<section id="infos">
+  <div class="sec-head reveal">
+    <div class="sec-label">Pratique</div>
+    <h2 class="sec-title">Infos utiles</h2>
+  </div>
+  <div class="infos-layout">
+
+    <div class="info-card reveal d1">
+      <div class="info-card-top">
+        <div class="info-icon-box" aria-hidden="true">🕐</div>
+        <div class="info-card-title">Horaires d'ouverture</div>
+      </div>
+      <div class="horaire-row">
+        <span class="horaire-dot"></span>
+        <span class="horaire-day">Jeudi</span>
+        <span class="horaire-time" data-bind="horaires.jeudi"></span>
+      </div>
+      <div class="horaire-row">
+        <span class="horaire-dot"></span>
+        <span class="horaire-day">Dimanche</span>
+        <span class="horaire-time" data-bind="horaires.dimanche"></span>
+      </div>
+      <div class="horaire-row alt">
+        <span class="horaire-dot navy"></span>
+        <span class="horaire-day sm">École de tir</span>
+        <span class="horaire-time" data-bind="horaires.ecole"></span>
+        <span class="horaire-badge">Jeunes</span>
+      </div>
+    </div>
+
+    <div class="info-card reveal d2">
+      <div class="info-card-top">
+        <div class="info-icon-box" aria-hidden="true">🪪</div>
+        <div class="info-card-title">Licence FFTir</div>
+      </div>
+      <p class="licence-desc">Obligatoire pour pratiquer. Valable du <strong>1er septembre au 31 août</strong>, renouvellement annuel.</p>
+      <ul class="include-list">
+        <li>Adhésion au club incluse</li>
+        <li>Assurance responsabilité civile</li>
+        <li>Accès aux installations</li>
+        <li>Participation aux compétitions officielles</li>
+      </ul>
+    </div>
+
+    <div class="info-card reveal d3">
+      <div class="info-card-top">
+        <div class="info-icon-box" aria-hidden="true">💰</div>
+        <div class="info-card-title">Tarifs</div>
+      </div>
+      <div class="tarif-list">
+        <div class="tarif-row"><span class="tarif-label">Adulte</span><span class="tarif-price">Nous contacter</span></div>
+        <div class="tarif-row"><span class="tarif-label">Jeune</span><span class="tarif-price">Nous contacter</span></div>
+        <div class="tarif-row"><span class="tarif-label">Séance découverte</span><span class="tarif-price hi" data-bind="tarifs.decouverte"></span></div>
+      </div>
+    </div>
+
+    <div class="info-card reveal d4">
+      <div class="info-card-top">
+        <div class="info-icon-box" aria-hidden="true">📋</div>
+        <div class="info-card-title">Documents nécessaires</div>
+      </div>
+      <div class="doc-chips">
+        <span class="doc-chip">Formulaire d'inscription</span>
+        <span class="doc-chip">Pièce d'identité</span>
+        <span class="doc-chip">Certificat médical</span>
+        <span class="doc-chip">Photo d'identité</span>
+        <span class="doc-chip">Règlement</span>
+        <span class="doc-chip">Autorisation droit à l'image</span>
+      </div>
+      <div class="doc-note">Le certificat doit mentionner :<br><strong>« apte à la pratique du tir sportif »</strong></div>
+      <a href="https://drive.google.com/file/d/1rznCugt7m54RpUwY4dn-2ULvGLeN2-J2/view" target="_blank" rel="noopener" class="doc-dl">↓ Télécharger le certificat médical</a>
+      <div class="doc-note">Autorisation « droit à l'image » : document à venir, sera ajouté ici prochainement.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- DISCIPLINES -->
+<section id="disciplines">
+  <div class="sec-head reveal">
+    <div class="sec-label">Sport &amp; Compétition</div>
+    <h2 class="sec-title">Disciplines pratiquées</h2>
+  </div>
+  <div class="disc-grid reveal">
+
+    <div class="disc-card feat">
+      <div class="disc-num">01 — DISCIPLINE PHARE</div>
+      <span class="disc-icon" aria-hidden="true">🧒</span>
+      <div class="disc-dist">Initiation · École de tir</div>
+      <div class="disc-name">Initiation Jeunes</div>
+      <p class="disc-desc">Découverte du tir sportif dans un cadre sécurisé et encadré, dès <strong>10 ans</strong> (à partir d'environ 1,40 m). Les jeunes apprennent les bases — sécurité, position, visée — en carabine <strong>22 LR uniquement</strong>, d'abord à <strong>20 mètres</strong> puis à <strong>50 mètres</strong> selon leur progression. Tous les dimanches matin de 10h à 11h30.</p>
+    </div>
+
+    <div class="disc-card">
+      <div class="disc-num">02</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-dist">20 mètres</div>
+      <div class="disc-name">Tir à genoux</div>
+      <p class="disc-desc">Discipline de précision en position à genoux. Demande stabilité, concentration et maîtrise de la position.</p>
+    </div>
+
+    <div class="disc-card">
+      <div class="disc-num">03</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-dist">20 mètres</div>
+      <div class="disc-name">Tir posé</div>
+      <p class="disc-desc">Discipline accessible idéale pour débuter. Carabine posée sur support — focus sur la visée et la précision.</p>
+    </div>
+
+    <div class="disc-card">
+      <div class="disc-num">04</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-dist">50 mètres</div>
+      <div class="disc-name">Tir posé longue distance</div>
+      <p class="disc-desc">Précision à plus longue distance avec appui. Travaille la régularité et le groupement.</p>
+    </div>
+
+    <div class="disc-card">
+      <div class="disc-num">05</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-dist">50 mètres</div>
+      <div class="disc-name">Tir couché</div>
+      <p class="disc-desc">Position classique du tir sportif, très utilisée en compétition. Demande rigueur et répétabilité.</p>
+    </div>
+
+    <div class="disc-card">
+      <div class="disc-num">06</div><span class="disc-icon" aria-hidden="true">🎯</span>
+      <div class="disc-dist">50 mètres · .22LR</div>
+      <div class="disc-name">Rimfire Benchrest</div>
+      <p class="disc-desc">Tir de précision à la carabine .22LR sur table. Groupements les plus serrés — réglages, régularité, lecture du vent.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="sec-head reveal">
+    <div class="sec-label">Vie du club</div>
+    <h2 class="sec-title">Galerie photo</h2>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <p class="gallery-empty">Chargement des photos…</p>
+  </div>
+</section>
+
+
+<!-- BÉNÉVOLAT -->
+<section id="benevolat">
+  <div class="sec-head reveal">
+    <div class="sec-label">S'investir</div>
+    <h2 class="sec-title">Devenir bénévole</h2>
+  </div>
+  <div class="benevole-card reveal">
+    <p class="benevole-lead">Possibilité de rejoindre le Club Victoria Rixheim en tant que <strong>membre bénévole</strong>… sans licence de tir.</p>
+    <p>Rejoindre une équipe, une famille de bénévoles… dynamiques, sympas, accueillants, où rires, bonne humeur et entraide sont essentiels.</p>
+    <a class="btn-red" data-bind-href="contact.emailHref" href="#">Nous écrire</a>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-head reveal">
+    <div class="sec-label">Nous rejoindre</div>
+    <h2 class="sec-title">Contact &amp; Localisation</h2>
+  </div>
+  <div class="contact-grid">
+
+    <div class="contact-items">
+      <div class="contact-item reveal">
+        <div class="ci-icon" aria-hidden="true">📞</div>
+        <div>
+          <div class="ci-label">Téléphone</div>
+          <div class="ci-value"><a data-bind-href="contact.phoneHref" data-bind="contact.phone" href="#"></a></div>
+          <div class="ci-sub" data-bind="contact.referent"></div>
+        </div>
+      </div>
+      <div class="contact-item reveal d1">
+        <div class="ci-icon" aria-hidden="true">📧</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-value"><a data-bind-href="contact.emailHref" data-bind="contact.email" href="#"></a></div>
+        </div>
+      </div>
+      <div class="contact-item reveal d2">
+        <div class="ci-icon" aria-hidden="true">📅</div>
+        <div>
+          <div class="ci-label">Permanences sur place</div>
+          <div class="ci-value sm" data-bind="horaires.short"></div>
+          <div class="ci-sub">Permanence administrative : <span data-bind="horaires.permanence"></span></div>
+        </div>
+      </div>
+      <div class="contact-item reveal d3">
+        <div class="ci-icon" aria-hidden="true">🏅</div>
+        <div>
+          <div class="ci-label">Affiliation</div>
+          <div class="ci-value" data-bind="affiliation.label"></div>
+          <div class="ci-sub">Licence FFTir obligatoire pour pratiquer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-block reveal d2">
+      <div class="map-ph">
+        <div class="map-grid-bg"></div>
+        <div class="map-center">
+          <svg class="map-pin-svg" viewBox="0 0 48 60" fill="none" aria-hidden="true">
+            <path d="M24 0C10.745 0 0 10.745 0 24c0 17.25 24 36 24 36s24-18.75 24-36C48 10.745 37.255 0 24 0z" fill="#C8253B"/>
+            <circle cx="24" cy="24" r="10" fill="white"/>
+            <circle cx="24" cy="24" r="5" fill="#C8253B"/>
+          </svg>
+          <div class="map-lbl">Club de Tir Victoria · Rixheim</div>
+        </div>
+      </div>
+      <div class="map-foot">
+        <div class="map-foot-txt" data-bind="localisation.ville"></div>
+        <a data-bind-href="localisation.mapsHref" target="_blank" rel="noopener" class="map-lnk" href="#">Voir sur Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-eye">Rejoindre le club</div>
+  <h2 class="cta-ttl">Prêt à essayer le tir sportif ?</h2>
+  <p class="cta-dsc">Séance découverte à <span data-bind="tarifs.decouverte"></span>. Venez tester dans un cadre sécurisé et encadré avant de vous licencier.</p>
+  <div class="cta-btns">
+    <a class="btn-red" data-bind-href="contact.phoneHref" href="#">📞 Appeler — <span data-bind="contact.phone"></span></a>
+    <a class="btn-out-w" data-bind-href="contact.emailHref" href="#">Envoyer un email</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">Victoria <span>Rixheim</span></div>
+  <div class="f-badge"><strong>FFTir</strong> Club affilié à la Fédération Française de Tir</div>
+  <div class="f-copy">© 2026 Club de Tir Victoria Rixheim</div>
+</footer>
+
+
+<!-- LIGHTBOX GALERIE -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">✕</button>
+  <img class="lightbox-img" id="lightboxImg" alt="" />
+</div>
+
+
+<script type="module" src="./assets/js/ui.js"></script>
+<script type="module" src="./assets/js/gallery.js"></script>
 </body>
 </html>

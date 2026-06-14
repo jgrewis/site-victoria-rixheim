@@ -13,12 +13,10 @@
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="stylesheet" href="./assets/css/auth.css" />
 </head>
-<body class="has-banner">
-
-<div class="draft-banner">Brouillon — version de démonstration · non publique</div>
+<body>
 
 <nav id="nav">
-  <a href="./accueil.html" class="nav-logo" aria-label="Retour au site Victoria">
+  <a href="./index.html" class="nav-logo" aria-label="Retour au site Victoria">
     <svg class="logo-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
       <circle cx="24" cy="24" r="22" stroke="#1A2B4A" stroke-width="1.5"/>
       <circle cx="24" cy="24" r="14" stroke="#1A2B4A" stroke-width="1" stroke-dasharray="3 3"/>
@@ -34,8 +32,8 @@
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="./accueil.html#galerie">Galerie</a></li>
-    <li><a href="./accueil.html">← Retour au site</a></li>
+    <li><a href="./index.html#galerie">Galerie</a></li>
+    <li><a href="./index.html">← Retour au site</a></li>
   </ul>
   <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -45,17 +43,13 @@
 <div class="member-hero">
   <div class="member-hero-left">
     <div class="member-hero-eyebrow">Espace membre</div>
-    <h1>Bienvenue,<br><span data-user-email>membre</span></h1>
+    <h1>Convocations,<br>résultats &amp; documents</h1>
     <div class="member-hero-meta">
       <span class="member-role-badge">
         <span class="member-badge-dot" aria-hidden="true"></span>
-        Membre actif
+        Club Victoria Rixheim
       </span>
-      <span class="member-email" data-user-email></span>
     </div>
-  </div>
-  <div class="member-hero-right">
-    <button type="button" class="member-logout" id="logoutBtn">Se déconnecter</button>
   </div>
 </div>
 
@@ -253,15 +247,6 @@
 </footer>
 
 
-<script type="module">
-  import { requireAuth, bindUserUI } from './assets/js/guard.js';
-  import { signOut } from './assets/js/auth.js';
-
-  const session = await requireAuth('member');
-  bindUserUI(session);
-
-  document.getElementById('logoutBtn')?.addEventListener('click', signOut);
-</script>
 <script type="module" src="./assets/js/ui.js"></script>
 <script type="module" src="./assets/js/gallery-upload.js"></script>
 </body>
