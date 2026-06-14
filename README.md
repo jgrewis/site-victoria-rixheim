@@ -72,6 +72,18 @@ git push -u origin main
 
 Puis sur GitHub : **Settings > Pages > Source = main / root**. Vérifier que l'URL est bien autorisée dans Supabase (étape 2.5).
 
+## Galerie photo — configuration Supabase Storage
+
+La galerie (section `#galerie` de `accueil.html`) et le formulaire d'ajout de photo (`espace-membre.html`) lisent/écrivent dans un bucket Supabase Storage nommé **`galerie`**. À créer manuellement dans le dashboard Supabase :
+
+1. **Storage > Buckets > New bucket** : nom `galerie`, cocher **Public bucket** (pour que `getPublicUrl` fonctionne et que les images s'affichent sur le site).
+2. **Storage > Policies** sur le bucket `galerie` :
+   - Lecture (`SELECT`) : autorisée pour tous (`anon` + `authenticated`) — nécessaire car le bucket est public.
+   - Ajout (`INSERT`) : autorisé uniquement pour `authenticated` (les membres connectés via le formulaire d'ajout de photo).
+3. Aucune clé supplémentaire à coller dans le code : le client `assets/js/supabase.js` existant est réutilisé.
+
+Une fois le bucket créé, toute photo ajoutée via l'espace membre apparaît automatiquement dans la galerie publique.
+
 ## Test en local
 
 Il faut un serveur HTTP (les modules ES ne marchent pas avec `file://`). Le plus simple :

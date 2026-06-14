@@ -45,6 +45,7 @@
     <li><a href="#accueil">Accueil</a></li>
     <li><a href="#infos">Infos utiles</a></li>
     <li><a href="#disciplines">Disciplines</a></li>
+    <li><a href="#galerie">Galerie</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="./espace-membre.html">Espace membre</a></li>
   </ul>
@@ -89,7 +90,7 @@
         </svg>
       </div>
       <div class="hero-pill pill-1"><div class="pill-val" data-count="6">6</div><div class="pill-lab">Disciplines</div></div>
-      <div class="hero-pill pill-2"><div class="pill-val" data-count="15" data-count-suffix=" €">15 €</div><div class="pill-lab">Découverte</div></div>
+      <div class="hero-pill pill-2"><div class="pill-val" data-count="17" data-count-suffix=" €">17 €</div><div class="pill-lab">Découverte</div></div>
       <div class="hero-pill pill-3"><div class="pill-val" data-count="50" data-count-suffix="m">50m</div><div class="pill-lab">Distance max</div></div>
     </div>
   </div>
@@ -171,9 +172,11 @@
         <span class="doc-chip">Certificat médical</span>
         <span class="doc-chip">Photo d'identité</span>
         <span class="doc-chip">Règlement</span>
+        <span class="doc-chip">Autorisation droit à l'image</span>
       </div>
       <div class="doc-note">Le certificat doit mentionner :<br><strong>« apte à la pratique du tir sportif »</strong></div>
       <a href="https://drive.google.com/file/d/1rznCugt7m54RpUwY4dn-2ULvGLeN2-J2/view" target="_blank" rel="noopener" class="doc-dl">↓ Télécharger le certificat médical</a>
+      <div class="doc-note">Autorisation « droit à l'image » : document à venir, sera ajouté ici prochainement.</div>
     </div>
 
   </div>
@@ -193,7 +196,7 @@
       <span class="disc-icon" aria-hidden="true">🧒</span>
       <div class="disc-dist">Initiation · École de tir</div>
       <div class="disc-name">Initiation Jeunes</div>
-      <p class="disc-desc">Découverte du tir sportif dans un cadre sécurisé et encadré. Les jeunes apprennent les bases — sécurité, position, visée — à l'aide de carabines adaptées sur table avec support. Tous les dimanches matin de 10h à 11h30.</p>
+      <p class="disc-desc">Découverte du tir sportif dans un cadre sécurisé et encadré, dès <strong>10 ans</strong> (à partir d'environ 1,40 m). Les jeunes apprennent les bases — sécurité, position, visée — en carabine <strong>22 LR uniquement</strong>, d'abord à <strong>20 mètres</strong> puis à <strong>50 mètres</strong> selon leur progression. Tous les dimanches matin de 10h à 11h30.</p>
     </div>
 
     <div class="disc-card">
@@ -235,6 +238,32 @@
 </section>
 
 
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="sec-head reveal">
+    <div class="sec-label">Vie du club</div>
+    <h2 class="sec-title">Galerie photo</h2>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <p class="gallery-empty">Chargement des photos…</p>
+  </div>
+</section>
+
+
+<!-- BÉNÉVOLAT -->
+<section id="benevolat">
+  <div class="sec-head reveal">
+    <div class="sec-label">S'investir</div>
+    <h2 class="sec-title">Devenir bénévole</h2>
+  </div>
+  <div class="benevole-card reveal">
+    <p class="benevole-lead">Possibilité de rejoindre le Club Victoria Rixheim en tant que <strong>membre bénévole</strong>… sans licence de tir.</p>
+    <p>Rejoindre une équipe, une famille de bénévoles… dynamiques, sympas, accueillants, où rires, bonne humeur et entraide sont essentiels.</p>
+    <a class="btn-red" data-bind-href="contact.emailHref" href="#">Nous écrire</a>
+  </div>
+</section>
+
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="sec-head reveal">
@@ -264,6 +293,7 @@
         <div>
           <div class="ci-label">Permanences sur place</div>
           <div class="ci-value sm" data-bind="horaires.short"></div>
+          <div class="ci-sub">Permanence administrative : <span data-bind="horaires.permanence"></span></div>
         </div>
       </div>
       <div class="contact-item reveal d3">
@@ -317,10 +347,18 @@
 </footer>
 
 
+<!-- LIGHTBOX GALERIE -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">✕</button>
+  <img class="lightbox-img" id="lightboxImg" alt="" />
+</div>
+
+
 <script type="module">
   import { requireAuth } from './assets/js/guard.js';
   await requireAuth();
 </script>
 <script type="module" src="./assets/js/ui.js"></script>
+<script type="module" src="./assets/js/gallery.js"></script>
 </body>
 </html>

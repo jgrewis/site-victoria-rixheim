@@ -7,13 +7,14 @@ export const SITE_DATA = {
     phoneHref: 'tel:+33675723031',
     email: 'tir.victoria.rixheim68@gmail.com',
     emailHref: 'mailto:tir.victoria.rixheim68@gmail.com',
-    referent: 'Annick Muller — référente club',
+    referent: 'Annick Muller — Présidente du Club',
   },
   horaires: {
     short: 'Jeudi 14h–17h · Dimanche 9h30–12h',
     jeudi: '14h00 – 17h00',
     dimanche: '9h30 – 12h00',
     ecole: 'Dim. 10h – 11h30',
+    permanence: '1er jeudi de chaque mois',
   },
   localisation: {
     ville: 'Rixheim — Alsace, 68170',
@@ -24,6 +25,6 @@ export const SITE_DATA = {
     short: 'FFTir',
   },
   tarifs: {
-    decouverte: '15 €',
+    decouverte: '17 €',
   },
 };

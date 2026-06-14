@@ -193,3 +193,12 @@ body.has-banner main.auth-shell { min-height:calc(100svh - 28px); }
 .doc-member-meta { font-size:.78rem; color:var(--muted); flex:1; }
 .doc-member-btn { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; font-size:.75rem; font-weight:600; color:var(--white); background:var(--navy); padding:.45rem 1rem; border-radius:6px; text-decoration:none; transition:background .2s; margin-top:.25rem; }
 .doc-member-btn:hover { background:var(--navy-lt); }
+
+/* Ajout de photo (galerie) */
+.photo-upload-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:clamp(1.5rem,3vw,2.5rem); max-width:480px; }
+.photo-upload-desc { font-size:.85rem; color:var(--muted); line-height:1.6; margin-bottom:1.25rem; }
+.field input[type="file"] { font-family:inherit; font-size:.88rem; color:var(--ink); background:var(--canvas); border:1px solid var(--border); border-radius:8px; padding:.65rem .9rem; }
+.photo-upload-msg { display:none; margin-top:1rem; font-size:.82rem; line-height:1.5; padding:.6rem .75rem; border-radius:0 6px 6px 0; border-left:3px solid var(--border); color:var(--muted); }
+.photo-upload-msg.show { display:block; }
+.photo-upload-msg.success { color:var(--ink); border-color:var(--navy); background:rgba(26,43,74,.04); }
+.photo-upload-msg.error { color:var(--red); border-color:var(--red); background:rgba(200,37,59,.06); }
