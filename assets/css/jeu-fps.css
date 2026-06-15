@@ -1,0 +1,104 @@
+/* ══════════════════════════════════════════════════════════
+   JEU — Vue immersive 3D (Three.js)
+   Réutilise jeu.css pour le HUD, le menu, le récap, les pastilles.
+   ══════════════════════════════════════════════════════════ */
+
+.fps-wrap { gap: 1rem; }
+
+.view-switch {
+  display: inline-block; margin-top: .5rem;
+  font-size: .8rem; font-weight: 500; color: rgba(255,255,255,.7);
+  text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.25);
+  padding-bottom: 1px; transition: color .2s, border-color .2s;
+}
+.view-switch:hover { color: var(--white); border-color: var(--white); }
+
+/* ── Scène 3D ─── */
+.fps-stage {
+  position: relative; z-index: 2;
+  width: min(94vw, 880px);
+  aspect-ratio: 16 / 10;
+  border-radius: 18px; overflow: hidden;
+  background: #0c1424;
+  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+  cursor: none;
+  touch-action: none;
+  user-select: none; -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+#fpsCanvas { display: block; width: 100%; height: 100%; }
+
+.fps-loading {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: rgba(255,255,255,.6); font-size: .9rem; z-index: 3;
+  pointer-events: none;
+}
+
+/* ── Voile « œilleton » en visée ─── */
+.ads-vignette {
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  opacity: 0; transition: opacity .25s;
+  background: radial-gradient(circle at 50% 50%,
+    transparent 44%, rgba(0,0,0,.22) 66%, rgba(0,0,0,.68) 100%);
+}
+.fps-stage.ads .ads-vignette { opacity: 1; }
+
+/* ── Viseur central (vue épaule basse) ─── */
+.xhair {
+  position: absolute; top: 50%; left: 50%; z-index: 5;
+  width: 44px; height: 44px; margin: -22px 0 0 -22px;
+  pointer-events: none; transition: opacity .2s, transform .12s;
+}
+.fps-stage.ads .xhair { opacity: 0; }   /* en épaulé : le réticule cède la place à l'œilleton */
+.xh { position: absolute; background: rgba(224,48,80,.92); box-shadow: 0 0 3px rgba(0,0,0,.5); }
+.xh-t, .xh-b { left: 50%; width: 2px; margin-left: -1px; height: 9px; }
+.xh-l, .xh-r { top: 50%; height: 2px; margin-top: -1px; width: 9px; }
+.xh-t { top: 0; } .xh-b { bottom: 0; }
+.xh-l { left: 0; } .xh-r { right: 0; }
+.xh-dot { position: absolute; top: 50%; left: 50%; width: 2px; height: 2px; margin: -1px 0 0 -1px; background: rgba(224,48,80,.95); border-radius: 50%; }
+.xhair.kick { transform: translateY(-8px) scale(1.25); }
+
+/* ── Œilleton net en visée (épaulé) ─── */
+.ads-sight {
+  position: absolute; top: 50%; left: 50%; z-index: 5;
+  width: 32%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border: 2.5px solid rgba(224,48,80,.9); border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0,0,0,.5), inset 0 0 16px rgba(0,0,0,.4);
+  opacity: 0; transition: opacity .2s; pointer-events: none;
+}
+.ads-sight::before, .ads-sight::after {
+  content: ''; position: absolute; top: 50%; left: 50%; background: rgba(224,48,80,.95);
+}
+.ads-sight::before { width: 4px; height: 4px; margin: -2px 0 0 -2px; border-radius: 50%; }
+.ads-sight::after { width: 60%; height: 1px; margin-top: -.5px; left: 20%; opacity: .35; }
+.fps-stage.ads .ads-sight { opacity: 1; }
+.fps-stage.ads .xhair.kick { transform: none; }
+
+/* ── Boutons tactiles ─── */
+.touch-ctrl {
+  position: absolute; inset: auto 0 0 0; z-index: 6;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 1rem 1.1rem 1.1rem; pointer-events: none;
+}
+.touch-ctrl[hidden] { display: none; }
+.tbtn {
+  pointer-events: auto;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: .9rem;
+  color: var(--white); border: 1.5px solid rgba(255,255,255,.3);
+  background: rgba(20,28,46,.6); backdrop-filter: blur(4px);
+  border-radius: 999px; padding: .8rem 1.4rem; cursor: pointer;
+  transition: transform .1s, background .2s;
+}
+.tbtn:active { transform: scale(.94); }
+.tbtn-ads.on { background: rgba(200,37,59,.5); border-color: var(--red-lt); }
+.tbtn-fire { background: rgba(200,37,59,.7); border-color: var(--red-lt); width: 78px; height: 78px; border-radius: 50%; padding: 0; }
+
+/* ── Menu / récap : on désactive le cercle hérité de jeu.css ─── */
+.fps-stage .menu, .fps-stage .recap { border-radius: 18px; }
+.fps-stage .recap[hidden] { display: none; }
+
+/* ── Mobile ─── */
+@media (max-width: 600px) {
+  .fps-stage { width: 94vw; aspect-ratio: 3 / 4; }
+  .game-sub { display: none; }
+}

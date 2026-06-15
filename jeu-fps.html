@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Simulateur de tir .22LR en vue immersive 3D — Club de Tir Victoria Rixheim. Épaulez la carabine, visez avec les organes de visée et tirez vos 5 balles. Modes 20 m et 50 m." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" type="image/jpeg" href="./assets/img/logo.jpg" />
+  <title>Simulateur 3D .22LR — Victoria Rixheim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/jeu.css" />
+  <link rel="stylesheet" href="./assets/css/jeu-fps.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="./index.html#accueil" class="nav-logo" aria-label="Accueil — Club de Tir Victoria Rixheim">
+    <img class="logo-icon" src="./assets/img/logo.jpg" alt="" aria-hidden="true" />
+    <div>
+      <span class="logo-name">Victoria</span>
+      <span class="logo-sub">Club de Tir · Rixheim</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="./index.html#accueil">Accueil</a></li>
+    <li><a href="./index.html#disciplines">Disciplines</a></li>
+    <li><a href="./index.html#galerie">Galerie</a></li>
+    <li><a href="./jeu.html" class="active">Simulateur</a></li>
+    <li><a href="./index.html#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="./index.html#cta">Nous rejoindre</a>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+
+<main class="game-wrap fps-wrap">
+
+  <div class="game-head">
+    <div class="game-eye">Carabine .22 LR · Vue immersive 3D</div>
+    <h1 class="game-title">Simulateur de tir <span class="dist-chip" id="distChip">20 m</span></h1>
+    <a href="./jeu.html" class="view-switch">↤ Revenir à la vue classique</a>
+  </div>
+
+  <!-- HUD -->
+  <div class="hud">
+    <div class="hud-item">
+      <span class="hud-lab">Balle</span>
+      <span class="hud-val"><span id="shotNum">1</span><span class="hud-tot">/5</span></span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-lab">Score</span>
+      <span class="hud-val" id="scoreVal">0</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-lab">Record</span>
+      <span class="hud-val" id="bestVal">—</span>
+    </div>
+    <button class="hud-btn" id="soundBtn" aria-pressed="true" title="Activer / couper le son">🔊</button>
+  </div>
+
+  <!-- SCÈNE 3D -->
+  <div class="fps-stage" id="fpsStage">
+    <canvas id="fpsCanvas"></canvas>
+
+    <!-- voile « à travers l'œilleton » en visée -->
+    <div class="ads-vignette" id="adsVignette"></div>
+
+    <!-- viseur central (vue épaule basse) -->
+    <div class="xhair" id="xhair" aria-hidden="true">
+      <span class="xh xh-t"></span><span class="xh xh-b"></span>
+      <span class="xh xh-l"></span><span class="xh xh-r"></span>
+      <span class="xh-dot"></span>
+    </div>
+
+    <!-- œilleton net affiché en visée (épaulé) -->
+    <div class="ads-sight" id="adsSight" aria-hidden="true"></div>
+
+    <!-- boutons tactiles -->
+    <div class="touch-ctrl" id="touchCtrl" hidden>
+      <button class="tbtn tbtn-ads" id="adsBtn">Viser</button>
+      <button class="tbtn tbtn-fire" id="fireBtn">Tirer</button>
+    </div>
+
+    <!-- MENU distance -->
+    <div class="menu" id="menu">
+      <div class="menu-card">
+        <div class="menu-eye">Choisissez votre distance</div>
+        <h2 class="menu-title">Carabine .22 LR — 3D</h2>
+        <p class="menu-desc">Maintenez <strong>Viser</strong> pour épauler, centrez le noir, puis tirez 5 balles.</p>
+        <div class="menu-btns">
+          <button class="dist-btn" data-mode="20">
+            <strong>20 mètres</strong><span>Initiation · cible plus proche</span>
+            <em class="dist-best" id="best20">Record : —</em>
+          </button>
+          <button class="dist-btn" data-mode="50">
+            <strong>50 mètres</strong><span>Précision · cible lointaine</span>
+            <em class="dist-best" id="best50">Record : —</em>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RÉCAP -->
+    <div class="menu recap" id="recap" hidden>
+      <div class="menu-card">
+        <div class="menu-eye">Carton terminé · <span id="recapDist">20 m</span></div>
+        <div class="recap-score"><span id="recapScore">0</span><span class="recap-max">/50</span></div>
+        <div class="recap-rating" id="recapRating">—</div>
+        <div class="recap-best" id="recapBest"></div>
+        <div class="recap-actions">
+          <button class="btn-red" id="replayBtn">Nouveau carton</button>
+          <button class="btn-ghost" id="changeDistBtn">Changer de distance</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="fps-loading" id="fpsLoading">Chargement de la scène 3D…</p>
+  </div>
+
+  <!-- commandes -->
+  <p class="hint" id="hint">Choisissez une distance pour commencer.</p>
+  <div class="pellets" id="pellets" aria-label="Scores du carton"></div>
+
+</main>
+
+
+<footer>
+  <div class="f-brand">Victoria <span>Rixheim</span></div>
+  <div class="f-badge"><strong>FFTir</strong> Club affilié à la Fédération Française de Tir</div>
+  <div class="f-copy">© 2026 Club de Tir Victoria Rixheim</div>
+</footer>
+
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="./assets/js/ui.js"></script>
+<script type="module" src="./assets/js/jeu-fps.js"></script>
+</body>
+</html>
