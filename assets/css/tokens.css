@@ -8,7 +8,7 @@
   --red:      #C8253B;
   --red-lt:   #E03050;
   --ink:      #111827;
-  --muted:    #6B7280;
+  --muted:    #586070; /* assombri vs #6B7280 → contraste AA (≈5.5:1 sur le crème) */
   --border:   #D9D6CE;
   --hero-grad: linear-gradient(135deg, #1A2B4A 0%, #253960 55%, #2C4A7C 100%);
 }
@@ -27,3 +27,26 @@ body {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--surface); }
 ::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 2px; }
+
+/* ── Icônes SVG (remplacent les emojis) ─── */
+.icon { width: 1em; height: 1em; display: inline-block; vertical-align: middle; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+/* ── Accessibilité : focus clavier visible sur tous les éléments interactifs ─── */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ── Accessibilité : respect de "réduire les animations" (système) ─── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Les éléments révélés au scroll doivent rester visibles */
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
