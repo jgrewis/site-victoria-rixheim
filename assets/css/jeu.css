@@ -307,6 +307,7 @@
   width: min(92vw, 520px);
   margin: 2.5rem auto 0;
   background: var(--white, #fff);
+  color: var(--ink, #111827);   /* fond clair → texte sombre (le panneau est dans .game-wrap qui hérite du blanc) */
   border: 1px solid rgba(0,0,0,.10);
   border-radius: 14px;
   padding: 1.1rem 1.2rem 1.3rem;
@@ -340,8 +341,9 @@
 .lb-pseudo {
   flex: 1 1 150px; min-width: 0; max-width: 220px;
   padding: .6rem .8rem; border-radius: 10px;
-  border: 1px solid rgba(0,0,0,.16); background: #fff; font-size: .95rem;
+  border: 1px solid rgba(0,0,0,.16); background: #fff; color: var(--ink, #111827); font-size: .95rem;
 }
+.lb-pseudo::placeholder { color: var(--muted, #586070); opacity: 1; }
 .lb-pseudo:focus { outline: none; border-color: var(--red, #c1121f); box-shadow: 0 0 0 3px rgba(193,18,31,.15); }
 .lb-publish-msg { flex-basis: 100%; text-align: center; font-size: .82rem; min-height: 1.1em; color: var(--muted, #6b7280); }
 .lb-publish-msg.success { color: #15803d; }
