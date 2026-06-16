@@ -301,3 +301,48 @@
 @media (max-width: 380px) {
   .pellet { width: 24px; height: 24px; font-size: .72rem; }
 }
+
+/* ── CLASSEMENT (panneau sous le simulateur) ─────────────── */
+.leaderboard {
+  width: min(92vw, 520px);
+  margin: 2.5rem auto 0;
+  background: var(--white, #fff);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem 1.3rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+}
+.lb-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .9rem; }
+.lb-title { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; margin: 0; }
+.lb-title span { font-weight: 500; opacity: .55; font-size: .85rem; }
+.lb-tabs { display: flex; gap: .35rem; }
+.lb-tab {
+  border: 1px solid rgba(0,0,0,.14); background: transparent;
+  border-radius: 999px; padding: .3rem .85rem; font-size: .82rem; font-weight: 600;
+  cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+}
+.lb-tab.active { background: var(--red, #c1121f); border-color: var(--red, #c1121f); color: #fff; }
+
+.lb-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .25rem; }
+.lb-row { display: grid; grid-template-columns: 2rem 1fr auto; align-items: center; gap: .6rem; padding: .5rem .6rem; border-radius: 9px; }
+.lb-row:nth-child(odd) { background: rgba(0,0,0,.03); }
+.lb-row.top { background: rgba(193,18,31,.07); }
+.lb-row.top:first-child .lb-rank { color: var(--red, #c1121f); }
+.lb-rank { font-family: 'Syne', sans-serif; font-weight: 700; text-align: center; opacity: .7; }
+.lb-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-score { font-family: 'Syne', sans-serif; font-weight: 700; }
+.lb-max { font-weight: 500; opacity: .45; font-size: .8em; }
+.lb-empty { text-align: center; color: var(--muted, #6b7280); font-size: .9rem; padding: 1.4rem 0; }
+.lb-foot { margin: .9rem 0 0; font-size: .76rem; color: var(--muted, #6b7280); text-align: center; }
+
+/* Bloc « Publier mon score » (dans le récap) */
+.lb-publish { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: .25rem 0 1rem; }
+.lb-pseudo {
+  flex: 1 1 150px; min-width: 0; max-width: 220px;
+  padding: .6rem .8rem; border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.16); background: #fff; font-size: .95rem;
+}
+.lb-pseudo:focus { outline: none; border-color: var(--red, #c1121f); box-shadow: 0 0 0 3px rgba(193,18,31,.15); }
+.lb-publish-msg { flex-basis: 100%; text-align: center; font-size: .82rem; min-height: 1.1em; color: var(--muted, #6b7280); }
+.lb-publish-msg.success { color: #15803d; }
+.lb-publish-msg.error { color: var(--red, #c1121f); }

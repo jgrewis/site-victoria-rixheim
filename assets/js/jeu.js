@@ -255,6 +255,7 @@ function showRecap() {
   document.getElementById('recapBest').textContent =
     isRecord && total > 0 ? '✨ Nouveau record à ' + cfg.label + ' !' : `Record à ${cfg.label} : ${best}/50`;
   refreshBestUI();
+  document.dispatchEvent(new CustomEvent('carton:fini', { detail: { mode, score: total } }));
   recap.hidden = false;
 }
 

@@ -129,6 +129,12 @@
         <div class="recap-score"><span id="recapScore">0</span><span class="recap-max">/50</span></div>
         <div class="recap-rating" id="recapRating">—</div>
         <div class="recap-best" id="recapBest"></div>
+        <div class="lb-publish">
+          <input id="pseudoInput" class="lb-pseudo" type="text" maxlength="20"
+                 placeholder="Ton pseudo" aria-label="Ton pseudo pour le classement" />
+          <button class="btn-red" id="publishBtn" type="button">Publier mon score</button>
+          <div class="lb-publish-msg" id="publishMsg" role="status"></div>
+        </div>
         <div class="recap-actions">
           <button class="btn-red" id="replayBtn">Nouveau carton</button>
           <button class="btn-ghost" id="changeDistBtn">Changer de distance</button>
@@ -141,6 +147,19 @@
 
   <!-- pastilles de score de la série -->
   <div class="pellets" id="pellets" aria-label="Scores du carton"></div>
+
+  <!-- CLASSEMENT -->
+  <section id="leaderboard" class="leaderboard" data-view="2d">
+    <div class="lb-head">
+      <h2 class="lb-title">Classement <span>· vue classique</span></h2>
+      <div class="lb-tabs" role="tablist" aria-label="Distance">
+        <button class="lb-tab active" data-mode="20" type="button">20 m</button>
+        <button class="lb-tab" data-mode="50" type="button">50 m</button>
+      </div>
+    </div>
+    <ol class="lb-list" id="lbList"><li class="lb-empty">Chargement…</li></ol>
+    <p class="lb-foot">Classement convivial — pour le plaisir, pas une compétition officielle.</p>
+  </section>
 
 </main>
 
@@ -155,5 +174,6 @@
 
 <script type="module" src="./assets/js/ui.js"></script>
 <script type="module" src="./assets/js/jeu.js"></script>
+<script type="module" src="./assets/js/leaderboard.js"></script>
 </body>
 </html>
