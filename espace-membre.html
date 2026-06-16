@@ -217,13 +217,13 @@
       <h2 class="msec-title">Ajouter une photo à la galerie</h2>
     </div>
     <div class="photo-upload-card reveal">
-      <p class="photo-upload-desc">Les photos ajoutées ici apparaissent automatiquement dans la galerie du site, après quelques instants.</p>
+      <p class="photo-upload-desc">Les photos ajoutées ici apparaissent automatiquement dans la galerie du site, après quelques instants. Vous pouvez en sélectionner plusieurs à la fois.</p>
       <form id="photoUploadForm" novalidate>
         <div class="field">
-          <label for="photoFile">Photo</label>
-          <input type="file" id="photoFile" name="photo" accept="image/*" required />
+          <label for="photoFile">Photos</label>
+          <input type="file" id="photoFile" name="photo" accept="image/*" multiple required />
         </div>
-        <button type="submit" class="auth-submit" id="photoSubmit">Ajouter la photo</button>
+        <button type="submit" class="auth-submit" id="photoSubmit">Ajouter les photos</button>
       </form>
       <div class="photo-upload-msg" id="photoUploadMsg" role="status"></div>
     </div>

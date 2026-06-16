@@ -306,8 +306,15 @@
     <div class="sec-label">Vie du club</div>
     <h2 class="sec-title">Galerie photo</h2>
   </div>
-  <div class="gallery-grid" id="galleryGrid">
-    <p class="gallery-empty">Chargement des photos…</p>
+  <div class="gallery-carousel reveal">
+    <button class="carousel-nav prev" id="carouselPrev" type="button" aria-label="Photo précédente" style="display:none">‹</button>
+    <div class="carousel-track" id="carouselTrack">
+      <p class="gallery-empty">Chargement des photos…</p>
+    </div>
+    <button class="carousel-nav next" id="carouselNext" type="button" aria-label="Photo suivante" style="display:none">›</button>
+  </div>
+  <div class="gallery-actions reveal">
+    <a class="btn-red" href="./galerie.html">Voir toutes les photos →</a>
   </div>
 </section>
 
